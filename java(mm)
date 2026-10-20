@@ -64,57 +64,47 @@ class practical2b
 
 
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
+import java.awt.event.*;
 
-public class practical9b extends JFrame implements ActionListener
+public class practical8a extends JFrame implements ActionListener
 {
-    JPasswordField passwordfield;
-    JButton toggleButton;
-    boolean isVisible = false;
+    JCheckBox checkBox;
+    JButton button;
 
-    public practical9b()
+    practical8a()
     {
-        setTitle("Show/Hide Password");
-        setSize(350, 150);
+        checkBox = new JCheckBox("I agree to the terms");
+        checkBox.setBounds(50, 50, 200, 30);
+
+        button = new JButton("Submit");
+        button.setBounds(50, 100, 100, 30);
+        button.addActionListener(this);
+
+        add(checkBox);
+        add(button);
+
+        setTitle("Checkbox Demo");
+        setSize(300, 200);
+        setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new FlowLayout());
-
-        JLabel label = new JLabel("Password:");
-
-        passwordfield = new JPasswordField(15);
-        passwordfield.setEchoChar('*');
-
-        toggleButton = new JButton("Show Password");
-        toggleButton.addActionListener(this);
-
-        add(label);
-        add(passwordfield);
-        add(toggleButton);
-
         setVisible(true);
     }
 
-    @Override
     public void actionPerformed(ActionEvent e)
     {
-        if (!isVisible)
+        if (checkBox.isSelected())
         {
-            passwordfield.setEchoChar((char) 0);
-            toggleButton.setText("Hide Password");
-            isVisible = true;
+            JOptionPane.showMessageDialog(this, "Checkbox is selected.");
         }
         else
         {
-            passwordfield.setEchoChar('*');
-            toggleButton.setText("Show Password");
-            isVisible = false;
+            JOptionPane.showMessageDialog(this, "Checkbox is not selected.");
         }
     }
 
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        new practical9b();
+        new practical8a();
     }
 }
