@@ -1,0 +1,29 @@
+class ReturnDemo
+{
+    int a;
+
+    ReturnDemo(int i)
+    {
+        a = i;
+    }
+
+    ReturnDemo increByTen()
+    {
+        ReturnDemo temp = new ReturnDemo(a + 10);
+        return temp;
+    }
+}
+
+public class Practical4a
+{
+    public static void main(String args[])
+    {
+        ReturnDemo obj1 = new ReturnDemo(2);
+        ReturnDemo obj2;
+
+        obj2 = obj1.increByTen();
+
+        System.out.println("obj1.a: " + obj1.a);
+        System.out.println("obj2.a: " + obj2.a);
+    }
+}
