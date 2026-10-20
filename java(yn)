@@ -1,0 +1,88 @@
+import java.util.*;
+
+class Circle
+{
+    float r, area;
+
+    Circle()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Radius:");
+        r = sc.nextFloat();
+    }
+
+    void calculate()
+    {
+        area = 3.14f * r * r;
+    }
+
+    void display()
+    {
+        System.out.println("Area = " + area);
+    }
+
+    public static void main(String args[])
+    {
+        Circle c = new Circle();
+        c.calculate();
+        c.display();
+    }
+}
+
+
+
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class practical9b extends JFrame implements ActionListener
+{
+    JPasswordField passwordfield;
+    JButton toggleButton;
+    boolean isVisible = false;
+
+    public practical9b()
+    {
+        setTitle("Show/Hide Password");
+        setSize(350, 100);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+
+        JLabel label = new JLabel("Password:");
+
+        passwordfield = new JPasswordField(15);
+        passwordfield.setEchoChar('*');
+
+        toggleButton = new JButton("Show Password");
+        toggleButton.addActionListener(this);
+
+        add(label);
+        add(passwordfield);
+        add(toggleButton);
+
+        setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        if (!isVisible)
+        {
+            passwordfield.setEchoChar((char) 0);
+            toggleButton.setText("Hide Password");
+            isVisible = true;
+        }
+        else
+        {
+            passwordfield.setEchoChar('*');
+            toggleButton.setText("Show Password");
+            isVisible = false;
+        }
+    }
+
+    public static void main(String args[])
+    {
+        new practical9b();
+    }
+}
