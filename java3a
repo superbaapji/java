@@ -1,0 +1,36 @@
+class Area
+{
+    public float area(float r)
+    {
+        return (3.14f * r * r);
+    }
+
+    public float area(float l, float b)
+    {
+        return (l * b);
+    }
+
+    public float area(float a, float b, float c)
+    {
+        float s;
+        s = (a + b + c) / 2;
+
+        s = s * (s - a) * (s - b) * (s - c);
+
+        return (float) Math.sqrt(s);
+    }
+}
+
+class practical3a
+{
+    public static void main(String args[])
+    {
+        Area a = new Area();
+
+        System.out.println("Area of circle = " + a.area(10));
+
+        System.out.println("Area of rectangle = " + a.area(10, 10));
+
+        System.out.println("Area of triangle = " + a.area(10, 10, 10));
+    }
+}
