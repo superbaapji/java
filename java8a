@@ -1,0 +1,44 @@
+import javax.swing.*;
+import java.awt.event.*;
+
+public class practical8a extends JFrame implements ActionListener
+{
+    JCheckBox checkBox;
+    JButton button;
+
+    practical8a()
+    {
+        checkBox = new JCheckBox("I agree to the terms");
+        checkBox.setBounds(50, 50, 200, 30);
+
+        button = new JButton("Submit");
+        button.setBounds(50, 100, 100, 30);
+        button.addActionListener(this);
+
+        add(checkBox);
+        add(button);
+
+        setTitle("Checkbox Demo");
+        setSize(300, 200);
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e)
+    {
+        if (checkBox.isSelected())
+        {
+            JOptionPane.showMessageDialog(this, "Checkbox is selected.");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Checkbox is not selected.");
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        new practical8a();
+    }
+}
